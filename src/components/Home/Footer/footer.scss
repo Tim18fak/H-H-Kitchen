@@ -1,0 +1,56 @@
+.HH__footer section{
+ display: flex;
+ justify-content: space-evenly;
+ width: 100%;
+}
+// .HH__footer section main style
+.HH__footer section main h3{
+ font-size: 2rem;
+ letter-spacing: 3px;
+ padding: 1rem 2rem;
+}
+.HH__footer section main p{
+ width: 45ch;
+ line-height: 180%;
+}
+// .HH__footer section aside style
+.HH__footer section aside{
+ display: flex;
+ width: 50%;
+ justify-content: space-evenly;
+ padding: 2.5rem 0;
+}
+.HH__footer section aside h4{
+ font-size: 1.1rem;
+ letter-spacing: 4px;
+ padding: 1rem 2rem;
+}
+.HH__footer section aside address{
+ width: 30ch;
+ line-height: 180%;
+}
+.HH__footer section aside div:nth-child(2) p{
+ padding: .5rem;
+}
+
+
+
+.HH__copyright--socialinks{
+ width: 100%;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+//  social links style
+.social__links{
+ width: 300px;
+ display: flex;
+ // justify-content: space-evenly;
+}
+.social__links p{
+ padding: .5rem;
+ width: 20px;
+ height:20px;
+
+ border: 1px solid black;
+}
