@@ -1,0 +1,77 @@
+#navCheck{
+    display: 'none';
+}
+
+.HH__nav{
+    background-color: rgb(207, 0, 0)(196, 132, 132);
+    padding: .5rem 1rem;
+    height: 150px;
+}
+.HH__nav .HH__nav--section{
+    display: flex;
+    justify-content: space-around;
+   
+}
+.HH__nav--section p{
+    width: 35px;
+    height: 35px;
+    border: 1px solid black;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: border 1s ease-in;
+}
+.HH__nav--section p label{
+    width: 20px;
+    height: 2px;
+    background-color: black;
+    display: block;
+    
+}
+.HH__nav ul{
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // padding: 1rem;
+    transition: opacity 2s ease-in-out;
+}
+.HH__nav ul li{
+    padding: 1rem;
+}
+.HH__nav--section p label::before,
+.HH__nav--section p label::after{
+    content: '';
+    display: block;
+    width: 10px;
+    height: 2px;
+    background-color: black;
+    position: relative;
+    left: 5px;
+    transition: all 2s ease-in-out;
+}
+.HH__nav--section p label::before{
+    top: -5px;
+}
+.HH__nav--section p label::after{
+    top: 3px;
+}
+#navCheck:checked + .HH__nav .HH__nav--section p{
+    border: transparent;
+}
+#navCheck:checked + .HH__nav .HH__nav--section p label::before{
+    transform: rotate(90deg);
+}
+#navCheck:checked + .HH__nav .HH__nav--section p label::after{
+    transform: rotate(90deg);
+    width: 20px;
+    top: -3px;
+}
+#navCheck:checked + .HH__nav .HH__nav--section p label{
+    transform: rotate(0deg);
+}
+#navCheck:checked + .HH__nav ul{
+    opacity: 1;
+}
