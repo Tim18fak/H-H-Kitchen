@@ -23,7 +23,7 @@ const Footer = () => {
       <hr />
       <section className='HH__copyright--socialinks'>
         <main className='social__links'>
-        <p></p>
+        <p>h</p>
         <p></p>
         <p></p>
         <p></p>
