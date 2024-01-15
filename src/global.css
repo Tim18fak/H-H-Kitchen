@@ -1,4 +1,15 @@
 /* globals styles */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+@font-face {
+    font-family: 'Abril Fatface';
+    src: url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+}
+@font-face {
+    font-family: 'Instrument Serif';
+    src: url('https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap');
+}
 *{
     margin: 0;
     padding: 0;
@@ -8,14 +19,34 @@
 li{
     list-style: none;
 }
+h1{
+    font-family: 'Instrument Serif';
+}
 a{
     text-decoration: none;
     color: black;
 }
-
+/* .HH__body{
+   
+} */
+.HH__margin{
+    margin: 0 4rem;
+}
 @media screen and (min-width:300px) and (max-width:550px) {
 
-    /* h3{
-        font-size: 1.5rem;
-    } */
+    .HH__margin{
+        margin: 0 .5rem;
+    }
+}
+@media screen and (min-width:551px) and (max-width:750px) {
+
+    .HH__margin{
+        margin: 0 2rem;
+    }
+}
+@media screen and (min-width:751px) and (max-width:1000px) {
+
+    .HH__margin{
+        margin: 0 3rem;
+    }
 }
