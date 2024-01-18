@@ -8,7 +8,8 @@ const app =  express()
 // Routes
 app.use('/d',Dishes)
 app.get('/HC/:subpath',(req,res) => {
-    res.send('Hello world')
+    const subpath = req.params.subpath;
+    res.json({'message': `Received POST request for /HV/${subpath}`});
 })
 
 app.listen(()=> {
