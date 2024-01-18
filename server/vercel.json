@@ -1,0 +1,17 @@
+{
+ "version": 2,
+ "build": [
+  {"src": "index.js", "use": "node@vercel"},
+  {"src": "auth.js", "use": "node@vercel"}
+ ],
+ "route": [
+  {
+   "src": "/H(*)",
+   "dest": "index.js"
+  },
+  {
+   "src": "/HV(*)",
+   "dest": "auth.js"
+  }
+ ]
+}
