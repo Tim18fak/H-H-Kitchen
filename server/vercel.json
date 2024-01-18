@@ -6,17 +6,17 @@
  ],
  "routes": [
   {
-   "src": "/H(*)",
+   "src": "/HC/(.*)",
    "methods": ["POST","GET"],
    "dest": "index.js"
   },
   {
-   "src": "/HV(*)",
+   "src": "/HV/(.*)",
    "methods": ["POST"],
    "dest": "auth.js"
   },
   {
-   "src": "/HA(*)",
+   "src": "/HA/(.*)",
    "dest": "admin.js"
   }
  ]
