@@ -7,7 +7,7 @@ const app =  express()
 
 // Routes
 app.use('/d',Dishes)
-app.get('/',(req,res) => {
+app.get('/HC/:subpath',(req,res) => {
     res.send('Hello world')
 })
 
