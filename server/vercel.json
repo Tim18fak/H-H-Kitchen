@@ -7,7 +7,7 @@
  "routes": [
   {
    "src": "/H(*)",
-   "methods": "",
+   "methods": ["POST","GET"],
    "dest": "index.js"
   },
   {
@@ -17,7 +17,6 @@
   },
   {
    "src": "/HA(*)",
-   "methods": "",
    "dest": "admin.js"
   }
  ]
