@@ -13,11 +13,13 @@
   },
   {
    "src": "/HV/(.*)",
-   "methods": ["POST","GET"],
+   "methods": ["POST"],
    "dest": "auth.js"
   },
   {
    "src": "/HA/(.*)",
+   "methods": ["POST","GET","DELETE"],
+   "status": 404,
    "dest": "admin.js"
   }
  ]
