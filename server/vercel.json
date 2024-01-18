@@ -1,8 +1,8 @@
 {
  "version": 2,
  "builds": [
-  {"src": "index.js", "use": "node@vercel"},
-  {"src": "auth.js", "use": "node@vercel"}
+  {"src": "index.js", "use": "@vercel/node"},
+  {"src": "auth.js", "use": "@vercel/node"}
  ],
  "routes": [
   {
