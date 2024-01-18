@@ -16,3 +16,12 @@ app.all('*',(req,res) => {
 app.listen(()=> {
     console.log('http://localhost')
 })
+
+// endpoints
+// /menu (GET): Retrieve the list of available menu items.
+// /menu/:itemId (GET): Get details of a specific menu item.
+// /reservation (POST): Place a reservation for a meal pickup.
+// /order (POST): Place a food order.
+// /order/:orderId (GET): Get details of a specific order.
+// /user/profile (GET): Retrieve user profile details.
+// /user/orders (GET): Get a list of past orders for the logged-in user.

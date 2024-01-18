@@ -12,7 +12,8 @@
   "scripts": {
     "dev": "nodemon index.js",
     "auth": "nodemon auth.js",
-    "admin": "nodemon admin.js"
+    "admin": "nodemon admin.js",
+    "payment":"nodemon payment.js"
   },
   "keywords": [],
   "author": "",
