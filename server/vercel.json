@@ -4,14 +4,21 @@
   {"src": "index.js", "use": "node@vercel"},
   {"src": "auth.js", "use": "node@vercel"}
  ],
- "route": [
+ "routes": [
   {
    "src": "/H(*)",
+   "methods": "",
    "dest": "index.js"
   },
   {
    "src": "/HV(*)",
+   "methods": ["POST"],
    "dest": "auth.js"
-  }
+  },
+  {
+   "src": "/HA(*)",
+   "methods": "",
+   "dest": "admin.js"
+  },
  ]
 }
