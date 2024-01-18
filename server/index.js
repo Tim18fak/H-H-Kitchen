@@ -7,7 +7,9 @@ const app =  express()
 
 // Routes
 app.use('/d',Dishes)
-
+app.get('/',(req,res) => {
+    res.json('Hello world')
+})
 
 app.listen(()=> {
     console.log('http://localhost')
