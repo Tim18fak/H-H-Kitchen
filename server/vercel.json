@@ -1,6 +1,6 @@
 {
  "version": 2,
- "build": [
+ "builds": [
   {"src": "index.js", "use": "node@vercel"},
   {"src": "auth.js", "use": "node@vercel"}
  ],
