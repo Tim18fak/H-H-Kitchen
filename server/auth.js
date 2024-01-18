@@ -9,7 +9,7 @@ auth.get('/HV/subpath', (req, res) => {
 });
 auth.all('*',(req,res) => {
  // res.sendFile('error.html',{root: 'public'})
-  const errorFilePath = path.jresolve(__dirname, 'html/error.html')
+  const errorFilePath = path.join(__dirname, 'public/error.html')
     res.status(404).sendFile(errorFilePath)
 })
 auth.listen(PORT,() => {
