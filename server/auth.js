@@ -8,8 +8,9 @@ auth.get('/HV/subpath', (req, res) => {
  res.json({'message': `Received POST request for /HV/${subpath}`});
 });
 auth.all('*',(req,res) => {
- const errorFilePath = path.resolve(__dirname, 'html/error.html')
- res.status(404).sendFile(errorFilePath)
+ // res.sendFile('error.html',{root: 'public'})
+  const errorFilePath = path.jresolve(__dirname, 'html/error.html')
+    res.status(404).sendFile(errorFilePath)
 })
 auth.listen(PORT,() => {
  console.log(`auth server running on http:localhost:${PORT}`)
