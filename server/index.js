@@ -10,5 +10,5 @@ app.use('/d',Dishes)
 
 
 app.listen(()=> {
-    console.log('http://localhos')
+    console.log('http://localhost')
 })
