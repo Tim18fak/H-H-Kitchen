@@ -13,7 +13,7 @@
   },
   {
    "src": "/HV/(.*)",
-   "methods": ["POST"],
+   "methods": ["POST","GET"],
    "dest": "auth.js"
   },
   {
