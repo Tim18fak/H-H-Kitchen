@@ -8,7 +8,7 @@ const app =  express()
 // Routes
 app.use('/d',Dishes)
 app.get('/',(req,res) => {
-    res.json('Hello world')
+    res.send('Hello world')
 })
 
 app.listen(()=> {
