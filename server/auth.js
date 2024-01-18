@@ -3,7 +3,7 @@ const express = require('express')
 const auth = express()
 const PORT = process.env.Port ||5000
 
-auth.get('/',(req,res) => {
+auth.get('/HV',(req,res) => {
  res.json({'message': 'Auth server'})
 })
 auth.listen(PORT,() => {
