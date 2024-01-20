@@ -10,7 +10,7 @@ const paymentRouter =  require('./Routes/payment')
 // })
 // direct all payment route 
 
-payment.use('/HP/:payment',paymentRouter)
+payment.use('/HP/payment',paymentRouter)
 
 // payment.use('/HP/sub',(req,res) => {
  
