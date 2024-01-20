@@ -19,8 +19,19 @@ const HHBlog = mongoose.Schema({
     timemStamp:{type: Date,required:true},
     quotient: {type:Number,required:true}
 })
+
+const DinerSchema =  mongoose.Schema({
+  username: {type: String,required: true},
+  email: {},
+  enablePaymentMethod: {type: Array},
+  monnfyTransactionReference: {type: String, required:true},
+  monnfyPaymentReference: {type: Array}
+})
+
+// model structure
 const AvailableDishes = mongoose.model('Dishes',DishesSchema)
 const Blog =  mongoose.model('Blog',HHBlog)
 const Review =  mongoose.model('Review',DishesReview)
 const KitchenMangement =  mongoose.model('HH_KitchenMangement',HH_KitchenMangement)
-module.exports= {AvailableDishes,Blog,KitchenMangement}
+const DinerModel =  mongoose.model('Diner',DinerSchema)
+module.exports= {AvailableDishes,Blog,KitchenMangement,DinerModel,Review}

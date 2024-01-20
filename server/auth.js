@@ -1,7 +1,7 @@
 const express = require('express')
 const path =  require('path')
 const auth = express()
-const PORT = process.env.Port ||5000
+const PORT = process.env.Port ||5100
 const authenicate =  require('./Routes/auth')
 
 auth.use('/HV/credentials',authenicate)

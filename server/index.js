@@ -1,6 +1,7 @@
 const express = require('express')
 // const {firebase} = require('./configs/firebase.config')
-// const Mongodb =  require('./configs/mongodb.config')
+require('dotenv').config()
+const Mongodb =  require('./configs/mongodb.config')
 const app =  express()
 const path = require('path')
 // Routes
@@ -14,7 +15,7 @@ app.all('*',(req,res) => {
     res.status(404).sendFile(errorFilePath)
 })
 app.listen(()=> {
-    console.log('http://localhost')
+    console.log(`http://localhost`)
 })
 
 // endpoints
