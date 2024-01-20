@@ -19,7 +19,8 @@ payment.use('/HP/:payment',paymentRouter)
 // })
 // prevent 
 payment.get('/HP/:subpath',(req,res) => {
- res.send('hello')
+ const subpath = req.params.subpath;
+ res.json({'message': `Received POST request for /HV/${subpath}`});
 })
 payment.all('*',(req,res) => {
  const errFilePath =  path.join(__dirname, 'public/error.html')
