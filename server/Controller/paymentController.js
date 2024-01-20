@@ -43,7 +43,10 @@ const BearerToken = async(req,res) => {
       // Your code here
       resolve(data.responseBody.accessToken)
     })
-    .catch(error => console.error(error));
+    .catch(error => {
+      console.error(error)
+      reject('')
+    });
     }
     )
     return token
