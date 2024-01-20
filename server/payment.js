@@ -18,7 +18,7 @@ payment.use('/HP/:payment',paymentRouter)
 //  res.send(process.env.APIKEY)
 // })
 // prevent 
-payment.get('/HP/',(req,res) => {
+payment.get('/HP/:subpath',(req,res) => {
  res.send('hello')
 })
 payment.all('*',(req,res) => {
