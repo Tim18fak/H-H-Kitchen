@@ -1,6 +1,6 @@
 const monnifyTestURL = 'https://sandbox.monnify.com'
 
-
+// noote when the final deplaoyment on vercel update the urls to the vercel based urls
 const HHKitchenURl = {
  basicTokenUrl: 'http://localhost:5500/HP/payment/authenticate',
  monnifyBearerURL : `${monnifyTestURL}/api/v1/auth/login`,
