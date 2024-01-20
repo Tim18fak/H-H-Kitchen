@@ -10,7 +10,7 @@ const paymentRouter =  require('./Routes/payment')
 // })
 // direct all payment route 
 
-payment.use('/HP/payment',paymentRouter)
+payment.use('/HP/:payment',paymentRouter)
 
 // payment.use('/HP/sub',(req,res) => {
  
@@ -18,7 +18,7 @@ payment.use('/HP/payment',paymentRouter)
 //  res.send(process.env.APIKEY)
 // })
 // prevent 
-payment.get('/HP/s',(req,res) => {
+payment.get('/HP/',(req,res) => {
  res.send('hello')
 })
 payment.all('*',(req,res) => {
