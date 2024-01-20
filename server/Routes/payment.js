@@ -1,6 +1,6 @@
 const express =  require('express')
 const paymentRouter =  express.Router();
-const MongoDb = require('../configs/mongodb.config')
+// const MongoDb = require('../configs/mongodb.config')
 // controller
 const {authenticate,BearerToken,InitializeDiner} =  require('../Controller/paymentController')
 // middleware

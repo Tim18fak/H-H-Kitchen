@@ -44,7 +44,8 @@ const BearerToken = async(req,res) => {
       resolve(data.responseBody.accessToken)
     })
     .catch(error => console.error(error));
-    })
+    }
+    )
     return token
   }
   const bearerToken = await BearerToken()
