@@ -22,6 +22,7 @@ payment.get('/HP/:subpath',(req,res) => {
  const subpath = req.params.subpath;
  res.json({'message': `Received POST request for /HV/${subpath}`});
 })
+
 payment.all('*',(req,res) => {
  const errFilePath =  path.join(__dirname, 'public/error.html')
  res.sendFile(errFilePath)

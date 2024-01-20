@@ -25,7 +25,7 @@
   },
   {
    "src": "/HP/(.*)",
-   "methods": ["POST"],
+   "methods": ["POST","GET"],
    "status": 404,
    "dest": "payment.js"
   }
