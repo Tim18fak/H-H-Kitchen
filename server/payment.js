@@ -11,13 +11,16 @@ const paymentRouter =  require('./Routes/payment')
 // direct all payment route 
 
 payment.use('/HP/payment',paymentRouter)
-// payment.post()
-payment.use('/HP/sub',(req,res) => {
+
+// payment.use('/HP/sub',(req,res) => {
  
- console.log(req.params.sub)
- res.send(process.env.APIKEY)
-})
+//  console.log(req.params.sub)
+//  res.send(process.env.APIKEY)
+// })
 // prevent 
+payment.get('/HP/s',(req,res) => {
+ res.send('hello')
+})
 payment.all('*',(req,res) => {
  const errFilePath =  path.join(__dirname, 'public/error.html')
  res.sendFile(errFilePath)
