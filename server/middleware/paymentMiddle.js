@@ -2,6 +2,7 @@ const jwt =  require('jsonwebtoken')
 const path =  require('path')
 const {DinerModel} =  require('../utils/DatabaseStruct')
 
+const {errorFilePath} =  require('../utils/errors')
 const UserData = async(req,res,next) => {
  try {
    // Your code here
@@ -23,22 +24,24 @@ const authenticateUser = (req,res,next) => {
   const header =  req.headers['authorization'];
   const HHKTOKEN = header && header.split(' ')[1]
   if(!header && !HHKTOKEN){
-    const errorPath =  path.join(__dirname,'../public/error.html')
+    const $errorFilePath = errorFilePath()
+    res.status(404).sendFile($errorFilePatherrorFilePath)
     return res.sendFile(errorPath)
   }
-
-  try {
-    // Your code here
-    jwt.verify(header,process.env.HHKTOKEN,(err) => {
-      if(err){
-        const errorPath =  path.join(__dirname,'../public/unauthorizated.html')
-        return res.sendFile(errorPath)
-      }
-  
-      next()
-    })
-  } catch (error) {
-    console.error(error);
+  else{
+    try {
+      // Your code here
+      jwt.verify(header,process.env.HHKTOKEN,(err) => {
+        if(err){
+          const errorPath =  path.join(__dirname,'../public/unauthorizated.html')
+          return res.sendFile(errorPath)
+        }
+    
+        next()
+      })
+    } catch (error) {
+      console.error(error);
+    }
   }
 }
 const userToken = async(req,res,next) => {

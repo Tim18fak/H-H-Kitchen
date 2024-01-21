@@ -1,0 +1,14 @@
+# GET https://jsonplaceholder.typicode.com/users
+
+# ###
+
+POST http://localhost:5100/HV/diner/dCreate
+Content-Type: application/json
+
+{
+ "username":"timothy",
+ "password":"tim",
+ "contact":"hell",
+ "address":"hell",
+ "email": "timothy.avell.olatunde@gmail.com"
+}

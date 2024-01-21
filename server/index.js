@@ -1,9 +1,12 @@
 const express = require('express')
-// const {firebase} = require('./configs/firebase.config')
-require('dotenv').config()
-const Mongodb =  require('./configs/mongodb.config')
 const app =  express()
 const path = require('path')
+require('dotenv').config()
+// calling the mongodb connection function
+const Mongodb =  require('./configs/mongodb.config')
+// refactoring my code to be more DRY
+const {errorFilePath} =  require('./utils/errors')
+
 // Routes
 app.get('/HC/:subpath',(req,res) => {
     const subpath = req.params.subpath;
@@ -11,8 +14,8 @@ app.get('/HC/:subpath',(req,res) => {
 })
 app.all('*',(req,res) => {
     // res.sendFile('error.html',{root: 'public'})
-    const errorFilePath = path.join(__dirname, 'public/error.html')
-    res.status(404).sendFile(errorFilePath)
+    const $errorFilePath = errorFilePath()
+    res.status(404).sendFile($errorFilePatherrorFilePath)
 })
 app.listen(()=> {
     console.log(`http://localhost`)

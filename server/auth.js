@@ -1,19 +1,25 @@
 const express = require('express')
 const path =  require('path')
 const auth = express()
+require('dotenv').config()
 const PORT = process.env.Port ||5100
 const authenicate =  require('./Routes/auth')
-
-auth.use('/HV/credentials',authenicate)
-auth.get('/HV/subpath', (req, res) => {
- const subpath = req.params.subpath;
- res.json({'message': `Received POST request for /HV/${subpath}`});
-});
-auth.all('*',(req,res) => {
- // res.sendFile('error.html',{root: 'public'})
-  const errorFilePath = path.join(__dirname, 'public/error.html')
-    res.status(404).sendFile(errorFilePath)
+const {validatedUrlParams} =  require('./middleware/authServer')
+// calling the mongodb connection function
+const Mongodb =  require('./configs/mongodb.config')
+// refactoring my code to be more DRY
+const {errorFilePath} =  require('./utils/errors')
+auth.use(express.json())
+auth.use('/HV/:subpath',validatedUrlParams,authenicate)
+auth.get('/he',(req,res) => {
+ res.send('hello')
 })
+// auth.all('*',(req,res) => {
+  
+//  // res.sendFile('error.html',{root: 'public'})
+//  const $errorFilePath = errorFilePath()
+//  res.status(404).sendFile($errorFilePatherrorFilePath)
+// })
 auth.listen(PORT,() => {
  console.log(`auth server running on http:localhost:${PORT}`)
 })

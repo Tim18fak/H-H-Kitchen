@@ -1,37 +1,108 @@
 const mongoose = require("mongoose");
+const { Schema } = require('mongoose');
 
-const DishesSchema = mongoose.Schema({
-  name: { type: String, required: true },
-  image: { type: Array, required: true },
-  description: { type: String, required: true },
-  category: {type:String,required:true}
-});
-const DishesReview = mongoose.Schema({
-  diners: { type: String, required: true },
-  dishreview: { type: String, required: true },
-  stars: { type: Number, required: true },
-});
-const HH_KitchenMangement = mongoose.Schema({});
-const HHBlog = mongoose.Schema({
-    image: {type:Array,required: true},
-    title: {type:String,required:true},
-    blog: {type:String,required:true},
-    timemStamp:{type: Date,required:true},
-    quotient: {type:Number,required:true}
-})
-
-const DinerSchema =  mongoose.Schema({
+const dinerSchema =  mongoose.Schema({
   username: {type: String,required: true},
-  email: {},
-  enablePaymentMethod: {type: Array},
-  monnfyTransactionReference: {type: String, required:true},
-  monnfyPaymentReference: {type: Array}
+  email: {type: String,required: true},
+  password: {type: String,required: true},
+  contact: {type: String,required: true},
+  address: {type: String,required: true},
+  activationCode: Number,
+  activationStatus: {type: String,required: true},
+  preferences: {
+    // Add any specific preferences here
+  },
+  reservations: [{
+    mealName: {type: String,required: true},
+    reservationTime: Date,
+    numberOfDiners: Number,
+    other: {
+      dessert: {type: String,required: true},
+    },
+  }],
 })
 
-// model structure
-const AvailableDishes = mongoose.model('Dishes',DishesSchema)
-const Blog =  mongoose.model('Blog',HHBlog)
-const Review =  mongoose.model('Review',DishesReview)
-const KitchenMangement =  mongoose.model('HH_KitchenMangement',HH_KitchenMangement)
-const DinerModel =  mongoose.model('Diner',DinerSchema)
-module.exports= {AvailableDishes,Blog,KitchenMangement,DinerModel,Review}
+const adminSchema = mongoose.Schema({
+  username: {type: String,required: true},
+  email: {type: String,required: true},
+  password: {type: String,required: true},
+  roles: [String],
+  contact: {type: String,required: true},
+})
+
+const mealSchema = mongoose.Schema({
+  name: {type: String,required: true},
+  preparationTime: Number,
+  calories: Number,
+  available: Boolean,
+})
+const chefSchema =  mongoose.Schema({
+  name: {type: String,required: true},
+  roles: [String],
+  experience: Number,
+  cookingSpecialty: {type: String,required: true},
+  currentTasks: [{
+    id: Number,
+    taskName: {type: String,required: true},
+    timeRequired: Number,
+    completed: Boolean,
+  }],
+})
+
+const orderSchema = mongoose.Schema({
+  mealName: {type: String,required: true},
+  reservationTime: Date,
+  diner: { type: Schema.Types.ObjectId, ref: 'Diner' },
+  numberOfDiners: Number,
+  other: {
+    dessert: {type: String,required: true},
+  },
+  status: {type: String,required: true}, // pending, completed, etc.
+})
+
+const taskSchema = mongoose.Schema({
+  taskName: {type: String,required: true},
+  requiredChef: { type: Schema.Types.ObjectId, ref: 'Chef' },
+  timeRequired: Number,
+  completed: Boolean,
+  details: {type: String,required: true}, // Additional details about the task
+})
+
+const transactionSchema =  mongoose.Schema({
+  diner: { type: Schema.Types.ObjectId, ref: 'Diner' },
+  mealName: {type: String,required: true},
+  paymentReference: {type: String,required: true},
+  transactionReference: {type: String,required: true},
+  time: Date,
+  transactionType: {type: String,required: true}, // Card, Cash, etc.
+  amount: Number,
+  paymentStatus: {type: String,required: true}, // Pending, Success, Failed, etc.
+})
+
+const inventorySchema = mongoose.Schema({
+  ingredientName: {type: String,required: true},
+  quantity: Number,
+  unit: {type: String,required: true}, // e.g., kg, g, liters, etc.
+  supplier: {type: String,required: true},
+  purchaseDate: Date,
+  expirationDate: Date,
+  alertThreshold: Number, // Quantity at which staff receives an alert
+})
+
+const receptionistSchema = mongoose.Schema({
+  username: {type: String,required: true},
+  email: {type: String,required: true},
+  password: {type: String,required: true},
+  roles: [String],
+  contact: {type: String,required: true},
+})
+const Diner = mongoose.model('Diner', dinerSchema);
+const Admin = mongoose.model('Admin', adminSchema);
+const Meal = mongoose.model('Meal', mealSchema);
+const Chef = mongoose.model('Chef', chefSchema);
+const Order = mongoose.model('Order', orderSchema);
+const Task = mongoose.model('Task', taskSchema);
+const Transaction = mongoose.model('Transaction', transactionSchema);
+const Inventory = mongoose.model('Inventory', inventorySchema);
+const Receptionist =  mongoose.model('Receptionist',receptionistSchema)
+module.exports = { Diner, Admin, Meal, Chef, Order, Task, Transaction, Inventory,Receptionist };

@@ -4,7 +4,10 @@ require('dotenv').config()
 const payment = express()
 const PORT = process.env.PaymentPort || 5500
 const paymentRouter =  require('./Routes/payment')
-
+// calling the mongodb connection function
+const Mongodb =  require('./configs/mongodb.config')
+// refactoring my code to be more DRY
+const {errorFilePath} =  require('./utils/errors')
 // payment.get('/HP/payment',(req,res) => {
 //  res.send('payment server running')
 // })
@@ -24,8 +27,8 @@ payment.get('/HP/:subpath',(req,res) => {
 })
 
 payment.all('*',(req,res) => {
- const errFilePath =  path.join(__dirname, 'public/error.html')
- res.sendFile(errFilePath)
+ const $errorFilePath = errorFilePath()
+ res.status(404).sendFile($errorFilePatherrorFilePath)
 })
 
 payment.listen(PORT,() => {
