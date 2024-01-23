@@ -1,4 +1,4 @@
-const brcypt =  require('bcrypt')
+const brcypt =  require('bcryptjs')
 const crypto = require('crypto') 
 const {ActivationCode,ActivationCodeEmail } = require('./defaultFunc')
 
