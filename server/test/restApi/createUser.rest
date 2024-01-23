@@ -2,13 +2,23 @@
 
 # ###
 
-POST http://localhost:5100/HV/diner/dCreate
+POST http://localhost:5100/HV/chef/cCreate
 Content-Type: application/json
 
 {
+ "fullname": "timothy Avell",
  "username":"timothy",
  "password":"tim",
  "contact":"hell",
  "address":"hell",
- "email": "timothy.avell.olatunde@gmail.com"
+ "email": "timothy.avell.olatune@gmail.com"
+}
+###
+POST http://localhost:5100/HV/chef/cActivation
+Content-Type: application/json
+
+{
+ "code":"234566",
+ "email": "timothy.avell.olatune@gmail.com",
+ "id": "oN/s81IjSH98S0MRgIorRix3rjTouxeeznY1gj3Jm/+O1QmQQrjV0oRD7hYyQmzO8xS5xsG5own+U23jcXUEVHsvli9S7IKSH9oIfyak1lFK24nm3I9ulFsCiPS6MYGjyYwxZ+yMHf2N7L5dwkI+8BlZk6o5k8XvROef//4NPDI="
 }

@@ -10,16 +10,18 @@ const Mongodb =  require('./configs/mongodb.config')
 // refactoring my code to be more DRY
 const {errorFilePath} =  require('./utils/errors')
 auth.use(express.json())
+// BUG remove the validatedRLParams to be sed for
 auth.use('/HV/:subpath',validatedUrlParams,authenicate)
 auth.get('/he',(req,res) => {
  res.send('hello')
 })
-// auth.all('*',(req,res) => {
+auth.all('*',(req,res) => {
   
-//  // res.sendFile('error.html',{root: 'public'})
-//  const $errorFilePath = errorFilePath()
-//  res.status(404).sendFile($errorFilePatherrorFilePath)
-// })
+ // res.sendFile('error.html',{root: 'public'})
+
+ const $errorFilePath = errorFilePath()
+ res.status(404).sendFile($errorFilePath)
+})
 auth.listen(PORT,() => {
  console.log(`auth server running on http:localhost:${PORT}`)
 })

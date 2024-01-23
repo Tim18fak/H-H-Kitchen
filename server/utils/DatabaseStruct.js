@@ -2,13 +2,13 @@ const mongoose = require("mongoose");
 const { Schema } = require('mongoose');
 
 const dinerSchema =  mongoose.Schema({
+  ID: {type: String,required: true},
+  name: {type: String,required: true},
   username: {type: String,required: true},
   email: {type: String,required: true},
   password: {type: String,required: true},
   contact: {type: String,required: true},
   address: {type: String,required: true},
-  activationCode: Number,
-  activationStatus: {type: String,required: true},
   preferences: {
     // Add any specific preferences here
   },
@@ -20,14 +20,26 @@ const dinerSchema =  mongoose.Schema({
       dessert: {type: String,required: true},
     },
   }],
+  // activationCode schema Structure
+  activationCode: Number,
+  activationStatus: {type: String,required: true},
+  activationAttempts: {type:Number,required:true}
 })
 
 const adminSchema = mongoose.Schema({
+  ID: {type: String,required: true},
+  name: {type: String,required: true},
   username: {type: String,required: true},
   email: {type: String,required: true},
   password: {type: String,required: true},
   roles: [String],
   contact: {type: String,required: true},
+  address: {type: String,required: true},
+
+  // activationCode schema Structure
+  activationCode: Number,
+  activationStatus: {type: String,required: true},
+  activationAttempts: {type:Number,required:true}
 })
 
 const mealSchema = mongoose.Schema({
@@ -37,16 +49,28 @@ const mealSchema = mongoose.Schema({
   available: Boolean,
 })
 const chefSchema =  mongoose.Schema({
+  ID: {type: String,required: true},
   name: {type: String,required: true},
+  username: {type: String,required: true},
+  email: {type: String,required: true},
+  password: {type: String,required: true},
+  roles: [String],
+  contact: {type: String,required: true},
+  address: {type: String,required: true},
   roles: [String],
   experience: Number,
-  cookingSpecialty: {type: String,required: true},
+  cookingSpecialty: {type: String},
   currentTasks: [{
     id: Number,
-    taskName: {type: String,required: true},
+    taskName: {type: String},
     timeRequired: Number,
     completed: Boolean,
   }],
+
+   // activationCode schema Structure
+   activationCode: Number,
+   activationStatus: {type: String,required: true},
+   activationAttempts: {type:Number,required:true}
 })
 
 const orderSchema = mongoose.Schema({
@@ -90,11 +114,23 @@ const inventorySchema = mongoose.Schema({
 })
 
 const receptionistSchema = mongoose.Schema({
+  ID: {type: String,required: true},
+  name: {type: String,required: true},
   username: {type: String,required: true},
   email: {type: String,required: true},
   password: {type: String,required: true},
   roles: [String],
   contact: {type: String,required: true},
+  address: {type: String,required: true},
+
+   // activationCode schema Structure
+   activationCode: Number,
+   activationStatus: {type: String,required: true},
+   activationAttempts: {type:Number,required:true}
+})
+const blockedUserSchema =  mongoose.Schema({
+  email: {type:String,required: true},
+  ip: {type: String,required: true}
 })
 const Diner = mongoose.model('Diner', dinerSchema);
 const Admin = mongoose.model('Admin', adminSchema);
@@ -105,4 +141,5 @@ const Task = mongoose.model('Task', taskSchema);
 const Transaction = mongoose.model('Transaction', transactionSchema);
 const Inventory = mongoose.model('Inventory', inventorySchema);
 const Receptionist =  mongoose.model('Receptionist',receptionistSchema)
-module.exports = { Diner, Admin, Meal, Chef, Order, Task, Transaction, Inventory,Receptionist };
+const Banned = mongoose.model('Banned',blockedUserSchema)
+module.exports = { Diner, Admin, Meal, Chef, Order, Task, Transaction, Inventory,Receptionist,Banned };

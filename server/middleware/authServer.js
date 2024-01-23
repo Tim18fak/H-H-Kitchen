@@ -7,8 +7,11 @@ const validatedUrlParams = (req,res,next) => {
  const validParams = ['diner','admin','chef','receptionist'];
 
  if(!validParams.includes(params)){
-  const $404ErrorPagePath =  errorFilePath()
-  res.sendFile($404ErrorPagePath)
+  console.log('err')
+  res.status(404).json({
+      error: 'URL invalid',
+      message: 'No POST req of the given url',
+    })
  }else{
   req.subpath =  params
  next()

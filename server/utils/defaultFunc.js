@@ -1,5 +1,5 @@
 const nodemailer = require('nodemailer')
-
+// refactoring my code to be more DRY
 
 const ActivationCode = () => {
   let code  = Math.trunc(Math.random() * 100000)
@@ -14,7 +14,7 @@ const ActivationCode = () => {
 const ActivationCodeEmail = (...args) => {
 
  const activationCodeHtmlTemplate = `${args[1]}`
-
+  console.log(args)
 
  const transporter =  nodemailer.createTransport({
   service: process.env.NodeMailerService,
@@ -38,18 +38,21 @@ const ActivationCodeEmail = (...args) => {
  }
 
 
-async function sendActivationCode(res,transporter,data){
+async function sendActivationCode(res,transporter,data,id){
  try {
    // Your code here
   await transporter.sendMail(data)
   res.status(201).json({
-   message: "You account has been created and your Activation Code was sent to your email"
+   message: "You account has been created and your Activation Code was sent to your email",
+   id
   })
  } catch (error) {
    console.error(error);
  }
  }
 
- sendActivationCode(args[0],transporter,sendInfo)
+ sendActivationCode(args[0],transporter,sendInfo,args[3])
 }
+
+
 module.exports = {ActivationCode,ActivationCodeEmail}
