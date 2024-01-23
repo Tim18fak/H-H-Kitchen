@@ -37,7 +37,7 @@ const jwtVerification = (req,res,next) => {
   next()
  })
  .catch(err => {
-  console.log(`Token is not valid`)
+  console.log(`Token is not valid `)
   res.status(403).json({
    'message': 'You token is not valid'
   })
