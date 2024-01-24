@@ -1,130 +1,267 @@
-#navCheck{
-    display: none;
-}
+// #navCheck{
+//     display: none;
+// }
 
+// .HH__nav{
+//     background-color: whitesmoke;
+//     padding: .8rem 1.5rem;
+//     height: 60px;
+//     transition: all 2s ease-in-out;
+// }
+// .HH__nav .HH__nav--section{
+//     display: flex;
+//     justify-content: space-around;
+   
+// }
+// .HH__nav--section label{
+//     width: 35px;
+//     height: 35px;
+//     border: 1px solid black;
+//     border-radius: 50%;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     transition: border 1s ease-in;
+// }
+// .HH__nav--section label p{
+//     width: 20px;
+//     height: 2px;
+//     background-color: black;
+//     display: block;
+    
+// }
+// .HH__nav ul{
+//     opacity: 0;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     // padding: 1rem;
+//     transition: opacity .1s ease-in-out;
+// }
+// .HH__nav ul li{
+//     padding: 1rem;
+//     list-style: disc;
+//     transition: list-style .2s ease;
+// }
+// .HH__nav ul li:hover{
+//     list-style: none;
+//     border-bottom: 2px solid orange;
+//     width: 100%;
+//     text-align: center;
+// }
+// .HH__nav--section  label p::before,
+// .HH__nav--section label p::after{
+//     content: '';
+//     display: block;
+//     width: 10px;
+//     height: 2px;
+//     background-color: black;
+//     position: relative;
+//     left: 5px;
+//     transition: all 2s ease-in-out;
+// }
+// .HH__nav--section label p::before{
+//     top: -5px;
+// }
+// .HH__nav--section  label p::after{
+//     top: 3px;
+// }
+// #navCheck:checked + .HH__nav .HH__nav--section label{
+//     border: transparent;
+// }
+// #navCheck:checked + .HH__nav .HH__nav--section label p::before{
+//     transform: rotate(90deg);
+// }
+// #navCheck:checked + .HH__nav .HH__nav--section label p::after{
+//     transform: rotate(90deg);
+//     width: 20px;
+//     top: -3px;
+// }
+// #navCheck:checked + .HH__nav .HH__nav--section p label{
+//     transform: rotate(0deg);
+// }
+// // #navCheck:checked + .HH__nav ul{
+// //     background-color: orange;
+// //     width: 100%;
+// //     opacity: 1;
+// // }
+// #navCheck:checked + .HH__nav{
+//     height: 260px;
+// }
+
+
+// .HH__nav--section h3{
+//     font-size: 1.5rem;
+//     letter-spacing: 3px;
+// }
+// .HH__nav--section button{
+//     padding: .5rem 1rem;
+//     border-radius: 20px;
+//     border: transparent;
+//     outline: 1px solid rgb(221, 0, 0);
+//     outline-offset: 4px;
+//     transition: all 1s ease;
+//     font-size: 1rem;
+    
+// }
+// .HH__nav--section button:hover{
+//     outline: 1px solid whitesmoke;
+//     background-color: orange;
+//     outline-offset: 5px;
+//     text-shadow: 2px 2px 4px orange;
+// }
+
+// @media screen and (min-width:300px) and (max-width:550px) {
+//     .HH__nav--section label{
+//         width: 30px;
+//     height: 30px;
+//     }
+//     .HH__nav--section h3{
+//         font-size: 1rem;
+//         letter-spacing: 3px;
+//         margin-left: 20px;
+//     }
+//     .HH__nav--section button{
+//         padding: .3rem .6rem;
+//         border-radius: 10px;
+//         font-size: .8rem;
+//     }
+// }
 .HH__nav{
     background-color: whitesmoke;
-    padding: .8rem 1.5rem;
-    height: 60px;
-    transition: all 2s ease-in-out;
 }
-.HH__nav .HH__nav--section{
+.show{
+    height: 240px;
+    transition: height 1s ease-in-out;
+}
+.hide{
+    height: 60px;
+    transition: height 1s ease-in-out;
+}
+.HH__nav section{
     display: flex;
     justify-content: space-around;
-   
-}
-.HH__nav--section label{
-    width: 35px;
-    height: 35px;
-    border: 1px solid black;
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding: .5rem;
     align-items: center;
-    transition: border 1s ease-in;
 }
-.HH__nav--section label p{
-    width: 20px;
-    height: 2px;
+
+#HH__nav--triger-on{
+    width: 30px;
+    height: 30px;
+     transition: all 1s ease-in-out;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+}
+#HH__nav--triger-on p{
+    width: 30px;
+    height: 3px;
     background-color: black;
-    display: block;
-    
+    transition: all 1s ease-in-out;
 }
-.HH__nav ul{
-    opacity: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    // padding: 1rem;
-    transition: opacity .1s ease-in-out;
-}
-.HH__nav ul li{
-    padding: 1rem;
-    list-style: disc;
-    transition: list-style .2s ease;
-}
-.HH__nav ul li:hover{
-    list-style: none;
-    border-bottom: 2px solid orange;
-    width: 100%;
-    text-align: center;
-}
-.HH__nav--section  label p::before,
-.HH__nav--section label p::after{
+#HH__nav--triger-on p::before,
+#HH__nav--triger-on p::after{
     content: '';
     display: block;
-    width: 10px;
-    height: 2px;
-    background-color: black;
     position: relative;
-    left: 5px;
-    transition: all 2s ease-in-out;
-}
-.HH__nav--section label p::before{
-    top: -5px;
-}
-.HH__nav--section  label p::after{
-    top: 3px;
-}
-#navCheck:checked + .HH__nav .HH__nav--section label{
-    border: transparent;
-}
-#navCheck:checked + .HH__nav .HH__nav--section label p::before{
+    background-color: black;
+    transition: all 1s ease-in-out
+};
+#HH__nav--triger-on p::before{
+    width: 15px;
+    height: 3px;
+    top: -8px;
     transform: rotate(90deg);
+    left: 10px;
 }
-#navCheck:checked + .HH__nav .HH__nav--section label p::after{
+#HH__nav--triger-on p::after{
+    width: 30px;
+    height: 3px;
     transform: rotate(90deg);
-    width: 20px;
-    top: -3px;
+    right: -10px;
+    top: -2px;
 }
-#navCheck:checked + .HH__nav .HH__nav--section p label{
-    transform: rotate(0deg);
+#HH__nav--triger-off{
+    width: 40px;
+    height: 40px;
+    border: 1px solid;
+    border-radius: 50%;
+    transition: all 1s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-// #navCheck:checked + .HH__nav ul{
-//     background-color: orange;
-//     width: 100%;
-//     opacity: 1;
-// }
-#navCheck:checked + .HH__nav{
-    height: 260px;
-}
-
-
-.HH__nav--section h3{
-    font-size: 1.5rem;
-    letter-spacing: 3px;
-}
-.HH__nav--section button{
-    padding: .5rem 1rem;
-    border-radius: 20px;
-    border: transparent;
-    outline: 1px solid rgb(221, 0, 0);
-    outline-offset: 4px;
-    transition: all 1s ease;
-    font-size: 1rem;
+#HH__nav--triger-off p{
+    width: 30px;
+    height: 3px;
+    background-color: black;
     
 }
-.HH__nav--section button:hover{
-    outline: 1px solid whitesmoke;
-    background-color: orange;
-    outline-offset: 5px;
-    text-shadow: 2px 2px 4px orange;
+#HH__nav--triger-off p::before,
+#HH__nav--triger-off p::after{
+    content: '';
+    display: block;
+    width: 20px;
+    height: 3px;
+    background-color: black;
+    position: relative;
+    left: 15%;
+    transition: all .5s ease-in-out;
+}
+#HH__nav--triger-off p::before{
+    top: -7px;
+}
+#HH__nav--triger-off p::after{
+    top: 5px;
 }
 
-@media screen and (min-width:300px) and (max-width:550px) {
-    .HH__nav--section label{
-        width: 30px;
-    height: 30px;
-    }
-    .HH__nav--section h3{
-        font-size: 1rem;
-        letter-spacing: 3px;
-        margin-left: 20px;
-    }
-    .HH__nav--section button{
-        padding: .3rem .6rem;
-        border-radius: 10px;
-        font-size: .8rem;
-    }
+// style HH__nav--link-hide
+.HH__nav--link-hide{
+   
+}
+.HH__nav--link-hide li{
+    opacity: 0;
+    visibility: hidden;
+    transition: all .1s ease-in-out;
+}
+// HH__nav--link-show
+.HH__nav--link-show{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    text-align: center;
+    transition: all 5s ease-in-out;
+    transition-delay: 2s;
+    
+}
+.HH__nav--link-show li{
+    margin: .5rem 0;
+   opacity: 1;
+   visibility: visible;
+   list-style: none;
+    transition: opacity 5s ease-in-out,visibility 5s ease-in-out,list-style .1s ease-in-out;
+    padding: .3rem;
+}
+.HH__nav--link-show li:hover{
+    list-style: disc;
+}
+// book meal style 
+#HH__book-meal{
+    padding: .6rem 1.2rem;
+    background-color: white;
+    border: 2px solid;
+    border-radius: 20px;
+    outline: 2px solid;
+    outline-offset: 0px;
+    transition: all .4s ease-in-out;
+}
+#HH__book-meal:hover{
+    border: transparent;
+    outline: 2px solid;
+    outline-offset: 4px;
+    background-color: orange;
 }

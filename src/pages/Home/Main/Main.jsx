@@ -3,7 +3,8 @@ import './main.scss'
 import { MainImages } from './mainImages'
 import { MealData } from '../../../../hooks/useContext'
 import VideoComponent from '../../../components/Home/VideoCom/VideoComponent'
-const Main = () => {
+
+export default function Main({overlay}) {
  const Meal =  useContext(MealData) 
  const [starter,setStarter] = useState([])
  const [drink,setDrink] = useState([])
@@ -32,6 +33,36 @@ const Main = () => {
  },[])
   return (
    <>
+    <section className="HH__jumbostron HH__margin">
+      <main>
+        <h3>HARMONY HOUSE KITCHEN</h3>
+        <h1>Taste Flavors 
+          <img id='HH__jumbostron--textImage' src={`${MainImages.image9}`} alt="" srcset="" /> <br />from Around the <br />
+          <img id='HH__jumbostron--textImage' src={`${MainImages.image10}`} alt="" srcset="" /> World</h1>
+        <p><b>Harmony House Kitchen:</b> Where culinary excellence meets a symphony of flavors, creating a harmonious dining experience for every palate.</p>
+      </main>
+      <main className='HH__jumbostron-side-images-wrapper'>
+        <figure className='HH__jumbstron-side-image-row1'>
+          <img src={`${MainImages.image11}`} alt="" srcset="" />
+          <span></span>
+          <img src={`${MainImages.image12}`} alt="" srcset="" />
+        </figure>
+        
+        <section className='HH__jumbstron-side-image-row2'>
+          <figure>
+            <img src={`${MainImages.image11}`} alt="" srcset="" />
+            <img src={`${MainImages.image14}`} alt="" srcset="" />
+          </figure>
+
+          <figure >
+          <span></span>
+            <img src={`${MainImages.image15}`} alt="" srcset="" />
+            
+            <p>Since</p>
+          </figure>
+        </section>
+      </main>
+    </section>
    {/* about HH__Kitchen */}
    <section className='HH__about--kitchen HH__margin'>
     <figure id='HH__about--image'>
@@ -55,7 +86,7 @@ const Main = () => {
      </div>
 {/* break */}
      <div className='HH__about--row2'>
-      <main>
+      <main id='HH__kitchen--offers'>
        <p>Online Order</p>
        <p>Pre-Booking</p>
        <p>24/7 Services</p>
@@ -105,24 +136,31 @@ const Main = () => {
     </aside>
      </section>
     {/* content of the meal info */}
-    <div className='video--overlay'></div>
    </section>
 
    {/* testimonies */}
    <section className='HH__testimonies HH__margin'>
-    <div>
+    <div style={{
+      backgroundImage: `linear-gradient(to right,rgb(0,0,0,.6),rgb(0,0,0,.6)),url(${MainImages.image5})`
+    }}>
        <h1>50</h1>
        <p>Food Verities</p>
     </div>
-    <div>
+    <div style={{
+      backgroundImage: `linear-gradient(to right,rgb(0,0,0,.6),rgb(0,0,0,.6)),url(${MainImages.image5})`
+    }}>
     <h1>7</h1>
     <p>Awards</p>
     </div>
-    <div>
+    <div style={{
+      backgroundImage: `linear-gradient(to right,rgb(0,0,0,.6),rgb(0,0,0,.6)),url(${MainImages.image8})`
+    }}>
     <h1>125K</h1>
     <p>Happy Foodies</p>
     </div>
-    <div>
+    <div style={{
+      backgroundImage: `linear-gradient(to right,rgb(0,0,0,.6),rgb(0,0,0,.6)),url(${MainImages.image5})`
+    }}>
     <h1>3</h1>
      <p>Branches</p>
     </div>
@@ -151,8 +189,11 @@ const Main = () => {
        <img src={`${MainImages.image6}`} alt="" />
       </figure>
     </section>
+
+    {/* over-lay */}
+    <div className='video--overlay'></div>
     </>
   )
 }
 
-export default Main
+

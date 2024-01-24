@@ -1,6 +1,7 @@
 /* globals styles */
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
 
 @font-face {
     font-family: 'Abril Fatface';
@@ -26,9 +27,9 @@ a{
     text-decoration: none;
     color: black;
 }
-/* .HH__body{
-   
-} */
+.HH__body{
+   background-image: radial-gradient(circle,white,rgba(255, 192, 203, 0.384),white)
+}
 .HH__margin{
     margin: 0 4rem;
 }
