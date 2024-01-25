@@ -4,9 +4,57 @@
  align-items: center;
  width: 100%;
  height: 100vh;
- & .HH__admin-form{
-  
+ background-image: linear-gradient(to bottom,rgba(255, 166, 0, 0.76),rgba(255, 0, 0, 0.74));
+ & input{
+  border: transparent;
+  border-bottom: 1px solid black;
+  margin: .3rem;
+  padding: .5rem;
+  font-size: 1rem;
+  border-radius: 2px;
  }
+ & .HH__admin-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: whitesmoke;
+  width: 400px;
+  height: 400px;
+  box-shadow: 1px 1px 1px rgb(255, 255, 255),
+              1px 1px 2px rgb(255, 255, 255),
+              1px 1px 3px rgb(255, 255, 255),
+              1px 1px 2px rgb(255, 255, 255),
+              1px 3px 2px rgb(255, 255, 255),
+              -1px 1px 2px rgb(255, 255, 255);
+ }
+ border-radius: 15px;
 
 }
 
+.HH__admin-form{
+ & h1{
+  padding-top: 4rem;
+  padding-bottom: 1rem;
+  letter-spacing: 3px;
+ }
+ & p{
+  opacity: .6;
+  margin: .3rem;
+ }
+ & div{
+  width: 80%;
+  min-height: auto;
+ }
+ & div input{
+  width: 100%;
+ }
+ & button{
+  width: 80%;
+  margin: .3rem;
+  padding: .5rem 1rem;
+  border: transparent;
+  background-color: orange;
+  border-radius: 5px;
+  font-size: 1.1rem;
+ }
+}
