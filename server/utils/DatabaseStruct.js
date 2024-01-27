@@ -130,7 +130,8 @@ const receptionistSchema = mongoose.Schema({
 })
 const blockedUserSchema =  mongoose.Schema({
   email: {type:String,required: true},
-  ip: {type: String,required: true}
+  ip: {type: String,required: true},
+  banTimeout: {type: Date,required: true}
 })
 const Diner = mongoose.model('Diner', dinerSchema);
 const Admin = mongoose.model('Admin', adminSchema);

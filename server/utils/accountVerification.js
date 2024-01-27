@@ -1,3 +1,5 @@
+const { timeBan } = require("./defaultFunc")
+
 const ValidateAccount = async(Diner,req,res,Banned) => {
  try {
   // Your code here
@@ -14,13 +16,17 @@ const ValidateAccount = async(Diner,req,res,Banned) => {
  const availableAttempts =  existDiner.activationAttempts
  console.log(availableAttempts)
 
-//  implent a temporary ban and a delay timer
+//  function expression to set the temporary ban timeout
+
+const tempBan =  timeBan() 
+//  implement a temporary ban and a delay timer
   if(availableAttempts < 1){
      await Diner.findByIdAndDelete(existDiner._id)
    const{email} =  existDiner
    const Ban = new Banned({
     email,
-    ip: req.ip
+    ip: req.ip,
+    banTimeout: tempBan
    })
    await Ban.save()
    return res.status(401).json({

@@ -54,5 +54,50 @@ async function sendActivationCode(res,transporter,data,id){
  sendActivationCode(args[0],transporter,sendInfo,args[3])
 }
 
+const timeBan = () => {
 
-module.exports = {ActivationCode,ActivationCodeEmail}
+  const $30days = [3,5,8,10]
+const $31days = [0,2,4,6,7,9,11]
+
+const time = new Date()
+const month = time.getMonth()
+const year =  time.getFullYear()
+month
+    if($31days.includes(month)){
+     if(time.getDate() <= 29){
+        time.setDate(time.getDate() + 2)
+     }else{
+      time.setMonth(time.getMonth() + 1)
+      time.setDate(time.getDate() - 30)
+     }
+    }
+    else if($30days.includes(month)){
+      if(time.getDate() <= 28){
+        time.setDate(time.getDate() + 2)
+     }else{
+      time.setMonth(time.getMonth() + 1)
+      time.setDate(time.getDate() - 28)
+     }
+    }else if(month === 1){
+      // check for a leap year
+      const isLeapYear = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+      if((isLeapYear)){
+        if(time.getDate() <= 27){
+          time.setDate(time.getDate() + 2)
+        }else{
+          time.setMonth(time.getMonth() + 1)
+        time.setDate(time.getDate() - 27)
+        }
+      }else{
+        if(time.getDate() <= 26){
+          time.setDate(time.getDate() + 2)
+        }else{
+          time.setMonth(time.getMonth() + 1)
+        time.setDate(time.getDate() - 26)
+        }
+      } 
+    }
+    return time
+}
+
+module.exports = {ActivationCode,ActivationCodeEmail,timeBan}

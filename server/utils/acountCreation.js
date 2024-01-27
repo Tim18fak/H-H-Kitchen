@@ -1,6 +1,7 @@
 const brcypt =  require('bcryptjs')
 const crypto = require('crypto') 
-const {ActivationCode,ActivationCodeEmail } = require('./defaultFunc')
+const {ActivationCode,ActivationCodeEmail } = require('./defaultFunc');
+const { Banned } = require('./DatabaseStruct');
 
 
 const NewAccount =  async(collection,res,body) => {
@@ -11,6 +12,23 @@ const NewAccount =  async(collection,res,body) => {
  console.log(body)
  const ID =  crypto.randomBytes(128).toString('base64')
 
+    // check if email has been banned already
+
+    const  banEmail = async function(arg){
+      const ban =  await Banned.findOne({email: email})
+      if(ban){
+        return true
+      }
+      return false
+    }
+    const isBanned =  await banEmail()
+    if(isBanned){
+
+      return res.status(403).json({
+        err: 'Ban',
+        errResponse: 98
+      })
+    }
     // valid if the user email is of valid email domain
     const ValidatedEmail =  function(){
       const acceptableEmailDomain = ['gmail.com','yahoo.com']
