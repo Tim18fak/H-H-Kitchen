@@ -15,6 +15,8 @@ auth.use('/HV/:subpath',validatedUrlParams,authenicate)
 auth.get('/he',(req,res) => {
  res.send('hello')
 })
+
+auth.get('/reset/:sub')
 auth.all('*',(req,res) => {
   
  // res.sendFile('error.html',{root: 'public'})

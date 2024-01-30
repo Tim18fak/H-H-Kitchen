@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+</head>
+<style>
+  body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:black;
+  }
+  form{
+   
+    width: 400px;
+    min-height: 300px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+  }
+  form::before{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    background-image: linear-gradient(to right, red,rgba(255, 255, 255, 0.527));
+    animation: rotate 3s  infinite forwards;
+    box-shadow: 1px 4px 20px rgb(255, 0, 0) ;
+  }
+  form::after{
+    content: '';
+    display: block;
+    position: absolute;
+    inset: 5px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+  }
+  section{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+  
+  @keyframes rotate {
+    from{
+      transform: rotate(0deg);
+      transition: rotate 3s ease-in-out;
+    }
+    to{
+      transform: rotate(360deg);
+      transition: rotate 3s ease-in-out;
+    }
+  }
+</style>
+<body>
+ <form>
+  <section>
+    <input type="password" placeholder="Current Password" class="input" id="oldPass" required>
+  <input type="password" placeholder="New Password" name="" class="input"  id="newPass" required>
+  <input type="password" name="" placeholder="Repeact New Password" class="input"  id="repeatPass" required>
+  <div>
+  <p></p>
+  <p></p>
+  <button >Reset</button>
+  </div>
+  </section>
+ </form>
+ <p></p>
+</body>
+<script>
+ // pick the input 
+  const input1 = document.querySelector('#oldPass')
+ const input2 = document.querySelector('#newPass')
+ const input3 = document.querySelector('#repeatPass')
+
+ const errtext = document.querySelector('p:nth-child(1)') 
+ document.querySelector('button').addEventListener('click',submit)
+
+ // count down timer 
+ let min = 5
+let second =  60
+
+setInterval(() => {
+ if(second > 0){
+  second--
+  console.log(second, min)
+  document.querySelector('p:nth-child(2)').textContent = `${min}:${second}`
+ }else if( second === 0){
+  second =  59
+  min--
+  document.querySelector('p:nth-child(2)').textContent = `${min}:${second}`
+ }
+ if(min === 0){
+  return 
+ }
+},1000)
+
+
+
+
+
+ function submit(e){
+  e.preventDefault()
+
+
+  let subSubPath;
+   const subPath =  window.location.pathname.split('/')[2]
+
+   switch (subPath) {
+     case 'diner':
+       // Your code here
+       subSubPath= 'dReset'
+       break;
+     case 'admin':
+      subSubPath = 'aReset'
+       // Your code here
+       break;
+     case 'chef':
+       // Your code here
+      subSubPath= 'cReset'
+      break;
+     case 'receptionist':
+       // Your code here
+      subSubPath= 'rReset'
+      break;
+     default:
+       // Your code here
+   }
+   const url = `http://localhost:5100/HV/${subPath}/${subSubPath}`
+
+   console.log(url)
+   const header = window.location.search
+  if(!input1.value || !input2.value || !input3.value){
+  
+   errtext.textContent = 'Please Fill in all input text'
+  
+    console.log(subPath)
+   if(input1.value){
+    input2.focus()
+    if(input2.value){
+     input3.focus()
+    }
+    else{
+     input2.focus()
+    }
+   }
+   else{
+    input1.focus()
+   }
+   setTimeout(() => {
+    errtext.textContent = ''
+   },5000) 
+  }else{
+   
+   const resetLink = new Promise((resolve,reject) => {
+
+    fetch(url,{
+     method: "POST",
+     headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${header}`
+     },
+     body: JSON.stringify({
+      "old": input1.value,
+      "new": input2.value,
+      "reNew": input3.value,
+     })
+    })
+    .then((res) => {
+     res.json()
+     .then((data) => {
+      resolve(data)
+     })
+    })
+    .catch((err) => {
+
+    })
+   })
+  }
+ }
+</script>
+</html>

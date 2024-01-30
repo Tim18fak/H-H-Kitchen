@@ -1,3 +1,4 @@
+'use strict'
 const brcypt =  require('bcryptjs')
 const crypto = require('crypto') 
 const {ActivationCode,ActivationCodeEmail } = require('./defaultFunc');
@@ -13,7 +14,6 @@ const NewAccount =  async(collection,res,body) => {
  const ID =  crypto.randomBytes(128).toString('base64')
 
     // check if email has been banned already
-
     const  banEmail = async function(arg){
       const ban =  await Banned.findOne({email: email})
       if(ban){
@@ -21,6 +21,7 @@ const NewAccount =  async(collection,res,body) => {
       }
       return false
     }
+    // await the result of the banEmail function
     const isBanned =  await banEmail()
     if(isBanned){
 

@@ -22,3 +22,27 @@ Content-Type: application/json
  "email": "timothy.avell.olatune@gmail.com",
  "id": "uAdGuS94MEUXM//mlps/BiTC+Hlb+S4FjKI8FsbVnVP09W2bIZYQxMov8+zKqgv+JfMd/x5dN7w0q668hZzbn0BrE/+3D1W8AWfQdWQRyCVqYDNaXTEAA1/2uKE0m5SxHAUjLcYhe6TY7TMR8oRPuwvv6pnHPVA/xiEosfoeRw8="
 }
+
+###
+POST http://localhost:5100/HV/admin/aLogin
+Content-Type: application/json
+
+{
+ "username": "timothy",
+ "email": "timothy.avell.olatune@gmail.com",
+ "password": "timm"
+}
+
+###
+////reset password link
+POST http://localhost:5100/HV/chef/cRecovery
+Content-Type: application/json
+
+{
+ "email": "timothy.avell.olatune@gmail.com"
+}
+###
+GET http://localhost:5100/HV/diner/dReset?u=Yja30uUAwHmEoP4ULHizZimnd5EuPoLdFhsGSgC3Z1XmmDcsOJN2bF2I2cOea0CfbgEw8ZR4W+xrWl+ilNlQ5sW9VnIFGEigzOElVZSykydSi8mMltvhyR2QqaFrNtNTBEuwgVTakmjgjHVlAd/ZN0bA0EFnZ71Rks6dujrxDFU=&t=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IllqYTMwdVVBd0htRW9QNFVMSGl6WmltbmQ1RXVQb0xkRmhzR1NnQzNaMVhtbURjc09KTjJiRjJJMmNPZWEwQ2ZiZ0V3OFpSNFcreHJXbCtpbE5sUTVzVzlWbklGR0VpZ3pPRWxWWlN5a3lkU2k4bU1sdHZoeVIyUXFhRnJOdE5UQkV1d2dWVGFrbWpnakhWbEFkL1pOMGJBMEVGblo3MVJrczZkdWpyeERGVT0iLCJpYXQiOjE3MDY1MjU3NTksImV4cCI6MTcwNjUyNjY1OX0.85WQIbyT69f2HwcozLVDpvGmNUSaqfY7sWitoCS25oQ
+
+
+###

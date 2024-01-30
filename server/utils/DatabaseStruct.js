@@ -133,6 +133,12 @@ const blockedUserSchema =  mongoose.Schema({
   ip: {type: String,required: true},
   banTimeout: {type: Date,required: true}
 })
+const refreshToken = mongoose.Schema({
+  token: {type:String,required:true}
+})
+const resetToken =  mongoose.Schema({
+  token: {type:String,required:true}
+})
 const Diner = mongoose.model('Diner', dinerSchema);
 const Admin = mongoose.model('Admin', adminSchema);
 const Meal = mongoose.model('Meal', mealSchema);
@@ -143,4 +149,6 @@ const Transaction = mongoose.model('Transaction', transactionSchema);
 const Inventory = mongoose.model('Inventory', inventorySchema);
 const Receptionist =  mongoose.model('Receptionist',receptionistSchema)
 const Banned = mongoose.model('Banned',blockedUserSchema)
-module.exports = { Diner, Admin, Meal, Chef, Order, Task, Transaction, Inventory,Receptionist,Banned };
+const Token =  mongoose.model('Token',refreshToken)
+const ResetToken =  mongoose.model('ResetToken', resetToken)
+module.exports = { Diner, Admin, Meal, Chef, Order, Task, Transaction, Inventory,Receptionist,Banned, Token, ResetToken};

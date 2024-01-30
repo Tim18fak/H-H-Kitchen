@@ -1,7 +1,9 @@
 const mongoose = require('mongoose')
 // a direct import of a module when we just what to load it not use it based on a name value
 // Set Mongoose debugging
+
 // mongoose.set('debug', true);
+
 const mongo_url = process.env.mongo_url;
 console.log(mongo_url)
 // this is a synchonous network request

@@ -100,4 +100,17 @@ month
     return time
 }
 
+const resetPassEmail = () => {
+  
+}
 module.exports = {ActivationCode,ActivationCodeEmail,timeBan}
+
+const crypto = require('crypto');
+
+function generateHex128() {
+  const buffer = crypto.randomBytes(256); // 64 bytes because 1 byte = 2 hex characters
+  return buffer.toString('hex');
+}
+
+const hex128 = generateHex128();
+console.log(hex128);
