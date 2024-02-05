@@ -1,4 +1,9 @@
 const express = require('express')
-const router =  express.Router()
+const diner = express.Router()
 
-module.exports =  router
+diner.post('/checkout', (req,res) => {
+ 
+})
+
+
+module.exports = diner

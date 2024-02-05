@@ -2,7 +2,7 @@
 
 # ###
 
-POST http://localhost:5100/HV/chef/cCreate
+POST http://localhost:5100/HV/diner/dCreate
 Content-Type: application/json
 
 {
@@ -11,16 +11,16 @@ Content-Type: application/json
  "password":"tim",
  "contact":"hell",
  "address":"hell",
- "email": "timothy.avell.olatune@gmail.com"
+ "email": "timothy.avell.olatunde@gmail.com"
 }
 ###
-POST http://localhost:5100/HV/chef/cActivation
+PATCH  http://localhost:5100/HV/diner/dActivation
 Content-Type: application/json
 
 {
- "code":"234566",
+ "code":"29504",
  "email": "timothy.avell.olatune@gmail.com",
- "id": "uAdGuS94MEUXM//mlps/BiTC+Hlb+S4FjKI8FsbVnVP09W2bIZYQxMov8+zKqgv+JfMd/x5dN7w0q668hZzbn0BrE/+3D1W8AWfQdWQRyCVqYDNaXTEAA1/2uKE0m5SxHAUjLcYhe6TY7TMR8oRPuwvv6pnHPVA/xiEosfoeRw8="
+ "id": "IZMVTGkhry5+zexQciPCdGVJO+k02eYY7OH9Slk74157A4bDegSgxLYOyVgBVOgyTh3PKrJptKoH5gM9Djy9gvAjYBJQ8Ph1dQ+llXiLDSd66TJDJ+Sw8f/O4SjNb3MrJl86vcKu6wU9oS1SAu2UuTkSckR5ZwxRhyk2GExmNXQ="
 }
 
 ###

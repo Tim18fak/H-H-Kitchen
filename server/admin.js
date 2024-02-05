@@ -1,28 +1,38 @@
 const express = require('express')
-const admin =  express()
+const admin = express()
 const PORT = process.env.PORT || 4000
 require('dotenv').config()
+
 // calling the mongodb connection function
-const Mongodb =  require('./configs/mongodb.config')
+const Mongodb = require('./configs/mongodb.config')
+
 // refactoring my code to be more DRY
-const {errorFilePath} =  require('./utils/errors')
+const { errorFilePath } = require('./utils/errors')
 
-admin.get('/HA/:subpath',(req,res) => {
- const subpath = req.params.subpath;
- res.json({'message': `Received POST request for /HV/${subpath}`});
-})
-admin.all('*',(req,res) => {
+const adminRouter = require('./Routes/admin')
+
+// admin middlewares
+const { subPath, verifyAdmin } = require('./middleware/adminServer')
+
+// admin route
+admin.use('/HA/:subpath', subPath, verifyAdmin, adminRouter)
+
+// admin.get('/HA/:subpath',(req,res) => {
+//   const subpath = req.params.subpath;
+//   res.json({'message': `Received POST request for /HV/${subpath}`});
+//  })
+admin.all('*', (req, res) => {
   //  a different way to access a file sing the res.sendFile
- // res.sendFile('error.html',{root: 'public'})
- 
+  // res.sendFile('error.html',{root: 'public'})
+
   const $errorFilePath = errorFilePath()
-    res.status(404).sendFile($errorFilePatherrorFilePath)
+  res.status(404).sendFile($errorFilePath)
 })
-admin.listen(PORT,() => {
- console.log(`Admin server running on http://localhost:${PORT}`)
+admin.listen(PORT, () => {
+  console.log(`Admin server running on http://localhost:${PORT}`)
 })
 
-// server features 
+// server features
 // 1. admin roles, post request to add new receipes
 // 2. get receipes
 // 3. get list of orders from the database

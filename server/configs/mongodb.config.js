@@ -4,20 +4,21 @@ const mongoose = require('mongoose')
 
 // mongoose.set('debug', true);
 
-const mongo_url = process.env.mongo_url;
+const mongo_url = process.env.mongo_url
 console.log(mongo_url)
 // this is a synchonous network request
-const Mongodb = mongoose.connect(mongo_url,{
+const Mongodb = mongoose
+  .connect(mongo_url, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
-})
-.then(() => {
-console.log('Successful database contection')
-})
-.catch(err => {
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log('Successful database contection')
+  })
+  .catch((err) => {
     console.error(`${err}`)
-})
-.finally(() => {
+  })
+  .finally(() => {
     console.log('the database logic is working')
-})
+  })
 module.exports = Mongodb

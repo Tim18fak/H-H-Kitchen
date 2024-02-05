@@ -1,37 +1,36 @@
 const express = require('express')
-const path =  require('path')
+const path = require('path')
 const auth = express()
 require('dotenv').config()
-const PORT = process.env.Port ||5100
-const authenicate =  require('./Routes/auth')
-const {validatedUrlParams} =  require('./middleware/authServer')
+const PORT = process.env.Port || 5100
+const authenicate = require('./Routes/auth')
+const { validatedUrlParams } = require('./middleware/authServer')
 // calling the mongodb connection function
-const Mongodb =  require('./configs/mongodb.config')
+const Mongodb = require('./configs/mongodb.config')
 // refactoring my code to be more DRY
-const {errorFilePath} =  require('./utils/errors')
+const { errorFilePath } = require('./utils/errors')
 auth.use(express.json())
-// BUG remove the validatedRLParams to be sed for
-auth.use('/HV/:subpath',validatedUrlParams,authenicate)
-auth.get('/he',(req,res) => {
- res.send('hello')
+// BUG remove the validatedRLParams to be used for
+auth.use('/HV/:subpath', validatedUrlParams, authenicate)
+auth.get('/he', (req, res) => {
+  res.send('hello')
 })
 
 auth.get('/reset/:sub')
-auth.all('*',(req,res) => {
-  
- // res.sendFile('error.html',{root: 'public'})
+auth.all('*', (req, res) => {
+  // res.sendFile('error.html',{root: 'public'})
 
- const $errorFilePath = errorFilePath()
- res.status(404).sendFile($errorFilePath)
+  const $errorFilePath = errorFilePath()
+  res.status(404).sendFile($errorFilePath)
 })
-auth.listen(PORT,() => {
- console.log(`auth server running on http:localhost:${PORT}`)
+auth.listen(PORT, () => {
+  console.log(`auth server running on http:localhost:${PORT}`)
 })
 
 // features
 // consumer get restuarant receipes
-//  consumer place orders for a day or enable reoccuring orders 
-// 
+//  consumer place orders for a day or enable reoccuring orders
+//
 //  Authentication and Authorization Server:
 
 // Endpoints:
